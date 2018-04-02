@@ -5,9 +5,19 @@ import { connect }            from 'react-redux';
 import * as Actions       from '../actions/index';
 
 class FileUpload extends React.Component {
+  
+  state = {
+    file: ''
+  }
 
   handleChange(files) {
-    console.log(files);
+    this.file = files[0];
+    
+  }
+  
+  uploadFile() {
+    console.log(this.file);
+    this.props.actions.fileUpload(this.files);
   }
 
   render() {
@@ -22,6 +32,7 @@ class FileUpload extends React.Component {
         </div>
       <button 
         type="button" 
+        onClick={this.uploadFile}
         className="btn btn-primary">
         Upload
       </button>

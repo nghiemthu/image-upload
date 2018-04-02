@@ -2,11 +2,14 @@ import { handleActions } from 'redux-actions';
 import * as types from '../constants/actionTypes';
 
 const DEFAULT_ACTION = {
-  isDisplayed: false,
+  file: {}
 };
 
 const actionsHandlers = {
-
+  [types.GET_ALL_EVENTS]: (state, { payload }) =>({
+		...state, 
+		file: payload.file
+	}),
 };
 
 export default handleActions (

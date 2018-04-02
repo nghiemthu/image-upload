@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import gallery from './gallery';
+import fileUpload from './fileUpload';
 
 const rootReducer = combineReducers({
-    gallery,
+    fileUpload,
 });
 
 export default rootReducer;

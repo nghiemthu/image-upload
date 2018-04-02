@@ -42,6 +42,7 @@ app.post('/fileUpload', upload.any(), (req, res, next) => {
       if (err)
         console.log(err);
       else {
+        console.log(req.files[0].fieldname);
         insertDocuments(db, 'public/images/uploads/' + req.files[0].fieldname, () => {
           db.close();
           res.json({'message': 'File uploaded successfully'});
@@ -65,6 +66,6 @@ app.get('*', (req, res) => {
   res.redirect('/');
 });
 
-app.listen('8080', function(){
+app.listen(process.env.PORT || '8080', process.env.IP, function(){
     console.log('Server started');
 })
