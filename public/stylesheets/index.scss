@@ -1,0 +1,219 @@
+$purple: #9909e4;
+$dark-green: #12bdac;
+$green: #00cc66;
+$blue: #0ebeff;
+$grid-columns: 12;
+$gray: #999;
+$light-gray: #eee;
+
+$pad-xs: 2px;
+$pad-sm: 4px;
+$pad-md: 8px;
+$pad-lg: 16px;
+
+body {
+  font-family: Montserrat;
+}
+
+.app {
+    margin-top: 20vh;
+}
+
+.selected-img {
+    width: 50%;
+    margin: 0 auto;
+
+    img {
+        width: 100%;
+    }
+}
+
+.button-holder {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.open-modal-button {
+    margin-top: $pad-md;
+    padding: $pad-md;
+    font-family: Montserrat;
+    background: $dark-green;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+        background: $green;
+    }
+}
+
+.file-upload {
+  display: flex;
+  position: relative;
+
+  .loader {
+      display: none;
+  }
+
+  &.loading {
+    .loader {
+      position: absolute;
+      right: 5px;
+      top: 10px;
+    }
+    
+    .upload-button {
+      padding-left: $pad-md;
+      padding-right: 50px;
+    }
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+  
+  .upload-lable {
+    display: flex;
+    flex: 1;
+    border: 1px dashed $gray;
+    padding: $pad-lg;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.6s ease;
+    
+    &:hover {
+      background: $light-gray;
+      border: 1px dashed $green;
+    }
+  }
+
+  .text {
+      padding-left: $pad-sm;
+  }
+ 
+  .upload-button {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 150px;
+    width: fit-content;
+    padding: 0 30px;
+    font-family: Montserrat;
+    background: $green;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $green;
+    }
+
+    &.non-active {
+        background: $gray;
+        cursor: not-allowed;
+
+        &:hover {
+            background: $gray;
+        }
+    }
+
+    
+  }
+}
+
+.collection {
+  margin-top: $pad-md;
+  flex-wrap: wrap;
+  
+  .image-holder {
+    margin: $pad-sm;
+    background: gray;
+    height: 11vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 2px;
+    margin: 1%;
+    width: calc((100% - 8%) / 4);
+    
+    img {
+        height: 100%;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+  }
+}
+
+.ReactModal__Content {
+    left: 25% !important;
+    width: 50%;
+    height: 70%;
+    overflow-y: scroll;
+}
+
+.ReactModal__Overlay {
+    background: $light-gray !important;
+}
+
+.row {
+	display: flex;
+}
+
+[class*=col-] {
+	flex: 1;
+}
+
+@for $i from 1 through $grid-columns {
+	.col-#{$i} { 
+		flex: -1 0 100% / $grid-columns * $i;
+	}
+	.offset-#{$i} { 
+		margin-left: 100% / $grid-columns * $i;
+	}
+}
+
+
+.loader span{
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background-color: white;
+    margin: 15px 2px;
+}
+
+.loader span:nth-child(1){
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.loader span:nth-child(2){
+    animation: bounce 1s ease-in-out 0.33s infinite;
+}
+
+.loader span:nth-child(3){
+    animation: bounce 1s ease-in-out 0.66s infinite;
+}
+
+@keyframes bounce{
+0%, 75%, 100%{
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+}
+
+25%{
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    transform: translateY(-15px);
+}
+}

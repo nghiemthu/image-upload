@@ -1,3 +1,271 @@
-/*# sourceMappingURL=index.sass.map */
+body {
+  font-family: Montserrat;
+}
 
-/*# sourceMappingURL=index.css.map */
+.app {
+  margin-top: 20vh;
+}
+
+.selected-img {
+  width: 50%;
+  margin: 0 auto;
+}
+.selected-img img {
+  width: 100%;
+}
+
+.button-holder {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.open-modal-button {
+  margin-top: 8px;
+  padding: 8px;
+  font-family: Montserrat;
+  background: #12bdac;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.open-modal-button:hover {
+  background: #00cc66;
+}
+
+.file-upload {
+  display: flex;
+  position: relative;
+}
+.file-upload .loader {
+  display: none;
+}
+.file-upload.loading .loader {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+}
+.file-upload.loading .upload-button {
+  padding-left: 8px;
+  padding-right: 50px;
+}
+.file-upload input[type=file] {
+  display: none;
+}
+.file-upload .upload-lable {
+  display: flex;
+  flex: 1;
+  border: 1px dashed #999;
+  padding: 16px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.6s ease;
+}
+.file-upload .upload-lable:hover {
+  background: #eee;
+  border: 1px dashed #00cc66;
+}
+.file-upload .text {
+  padding-left: 4px;
+}
+.file-upload .upload-button {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 150px;
+  width: fit-content;
+  padding: 0 30px;
+  font-family: Montserrat;
+  background: #00cc66;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.file-upload .upload-button:hover {
+  background: #00cc66;
+}
+.file-upload .upload-button.non-active {
+  background: #999;
+  cursor: not-allowed;
+}
+.file-upload .upload-button.non-active:hover {
+  background: #999;
+}
+
+.collection {
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.collection .image-holder {
+  margin: 4px;
+  background: gray;
+  height: 11vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 2px;
+  margin: 1%;
+  width: calc((100% - 8%) / 4);
+}
+.collection .image-holder img {
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.collection .image-holder img:hover {
+  transform: scale(1.1);
+}
+
+.ReactModal__Content {
+  left: 25% !important;
+  width: 50%;
+  height: 70%;
+  overflow-y: scroll;
+}
+
+.ReactModal__Overlay {
+  background: #eee !important;
+}
+
+.row {
+  display: flex;
+}
+
+[class*=col-] {
+  flex: 1;
+}
+
+.col-1 {
+  flex: -1 0 8.3333333333%;
+}
+
+.offset-1 {
+  margin-left: 8.3333333333%;
+}
+
+.col-2 {
+  flex: -1 0 16.6666666667%;
+}
+
+.offset-2 {
+  margin-left: 16.6666666667%;
+}
+
+.col-3 {
+  flex: -1 0 25%;
+}
+
+.offset-3 {
+  margin-left: 25%;
+}
+
+.col-4 {
+  flex: -1 0 33.3333333333%;
+}
+
+.offset-4 {
+  margin-left: 33.3333333333%;
+}
+
+.col-5 {
+  flex: -1 0 41.6666666667%;
+}
+
+.offset-5 {
+  margin-left: 41.6666666667%;
+}
+
+.col-6 {
+  flex: -1 0 50%;
+}
+
+.offset-6 {
+  margin-left: 50%;
+}
+
+.col-7 {
+  flex: -1 0 58.3333333333%;
+}
+
+.offset-7 {
+  margin-left: 58.3333333333%;
+}
+
+.col-8 {
+  flex: -1 0 66.6666666667%;
+}
+
+.offset-8 {
+  margin-left: 66.6666666667%;
+}
+
+.col-9 {
+  flex: -1 0 75%;
+}
+
+.offset-9 {
+  margin-left: 75%;
+}
+
+.col-10 {
+  flex: -1 0 83.3333333333%;
+}
+
+.offset-10 {
+  margin-left: 83.3333333333%;
+}
+
+.col-11 {
+  flex: -1 0 91.6666666667%;
+}
+
+.offset-11 {
+  margin-left: 91.6666666667%;
+}
+
+.col-12 {
+  flex: -1 0 100%;
+}
+
+.offset-12 {
+  margin-left: 100%;
+}
+
+.loader span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 100%;
+  background-color: white;
+  margin: 15px 2px;
+}
+
+.loader span:nth-child(1) {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.loader span:nth-child(2) {
+  animation: bounce 1s ease-in-out 0.33s infinite;
+}
+
+.loader span:nth-child(3) {
+  animation: bounce 1s ease-in-out 0.66s infinite;
+}
+
+@keyframes bounce {
+  0%, 75%, 100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}

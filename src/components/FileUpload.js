@@ -7,35 +7,55 @@ import * as Actions       from '../actions/index';
 class FileUpload extends React.Component {
   
   state = {
-    file: ''
+    files: []
   }
 
-  handleChange(files) {
-    this.file = files[0];
-    
+  handleChange = (files) => {
+    this.setState({ files }); 
   }
   
-  uploadFile() {
-    console.log(this.file);
-    this.props.actions.fileUpload(this.files);
+  uploadFile = () => {
+
+    if (this.state.files.length <= 0) return;
+
+    this.props.actions.fileUpload(this.state.files);
+  }
+
+  activeClass = () => {
+    return this.state.files.length <= 0 ? 'non-active' : 'active';
+  }
+
+  loading = () => {
+    return this.props.files.loading ? 'loading' : null;
   }
 
   render() {
     return (
-      <div>
-        FileUpload
-        <div className="form-group">
-          <input id="file" 
-            type="file" 
+      <div className={`file-upload ${ this.loading() }`}>
+        <label className="upload-lable">
+          <input type="file" 
             onChange={ (e) => this.handleChange(e.target.files) }
-            className="form-control"/>
+            className="file-input"/>
+          <i className="fas fa-cloud-upload-alt"></i>
+          <div className="text">
+            {
+              (this.state.files[0]) ? 
+                this.state.files[0].name 
+                  : 'Choose a file to upload'
+            }
+          </div>
+        </label>
+        <button 
+          type="button" 
+          onClick={this.uploadFile}
+          className={`upload-button ${ this.activeClass() }`}>
+          Upload
+        </button>
+        <div className="loader">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      <button 
-        type="button" 
-        onClick={this.uploadFile}
-        className="btn btn-primary">
-        Upload
-      </button>
       </div>
     );
   }

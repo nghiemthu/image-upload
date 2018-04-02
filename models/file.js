@@ -1,0 +1,7 @@
+var mongoose = require("mongoose");
+
+var fileSchema = new mongoose.Schema({
+    imagePath: String
+});
+
+module.exports = mongoose.model("file", fileSchema);
