@@ -28603,7 +28603,6 @@
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      console.log(this.props.files.selectedFile);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'app' },
@@ -28620,7 +28619,7 @@
 	            {
 	              className: 'open-modal-button',
 	              onClick: this.props.actions.showModal },
-	            'Upload File'
+	            'Choose File'
 	          )
 	        ),
 	        _react2.default.createElement(

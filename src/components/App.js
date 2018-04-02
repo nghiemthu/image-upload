@@ -11,7 +11,6 @@ import Modal from 'react-modal';
 
 class App extends React.Component {  
   render() {
-    console.log(this.props.files.selectedFile);
     return (
       <div className="app">
         <div className="img-holder selected-img">
@@ -21,7 +20,7 @@ class App extends React.Component {
         <div className="button-holder">
           <button 
             className="open-modal-button"
-            onClick={this.props.actions.showModal}>Upload File</button>
+            onClick={this.props.actions.showModal}>Choose File</button>
         </div>  
         
         <Modal
